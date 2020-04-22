@@ -1,6 +1,5 @@
-//
-//  temperatures.c
-//  CPractice
+//  temperatures.c Some basic C practice.  Asks the user for a range of temperatures
+// in C or F, and prints out a table of values in C and F.
 //
 //  Created by Tanya Hughes on 3/18/20.
 //  Copyright © 2020 Tanya Hughes. All rights reserved.
@@ -9,11 +8,9 @@
 #include <stdbool.h>
 #include <stdlib.h>
 #include <string.h>
-
 #include "temperatures.h"
 
-//locally-used only function
-float convertedTemp(bool celsius, float originalValue);
+static float convertedTemp(bool celsius, float originalValue);
 
 /*This function will print a table of temperatures in both Celsius and Fahrenheit. It asks the user for a lower bound, an upper bound, and a step size, and it asks whether the user is giving these bounds in C or F.*/
 int printTemperatures(void){
@@ -26,7 +23,6 @@ int printTemperatures(void){
     
     // Get values needed to construct the table from the user
     printf("I need you to give me the range for table.  Are you entering temperatures in Celsius? (yes or no)\n");
-    //scanf("%s",yesorno);  // works, but if they input something really long it could crash
     fgets(yesorno,3,stdin); //this just grabs the first 2 characers & adds a null to the end
     while ((getchar()) != '\n'); //flush the input buffer of any extra characters
     
@@ -67,7 +63,7 @@ int printTemperatures(void){
 }
 
 /*Converts a temperature from celsius to fahrenheit or vice-versa*/
-float convertedTemp(bool inCelsius, float originalValue){
+static float convertedTemp(bool inCelsius, float originalValue){
     if (inCelsius) return originalValue*9.0/5.0 + 32.0;
     else return (originalValue - 32.0)*5.0/9.0;
 }
