@@ -17,4 +17,4 @@ available:
                 written into a convenient array (and to the screen, twice - once from the
                 tree structure and once from the array).
                
-You can write the arguments as **-hts string -c** filename
+You can write the arguments as **-hts string -c filename**.
